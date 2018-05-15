@@ -3,6 +3,9 @@ Pure SplitMix
 
 Purely functional splittable PRNG.
 
+- 100% OCaml.
+- Light dependencies.
+
 ### Install with `opam`
 
 ```sh
@@ -18,3 +21,8 @@ The expected output `ref.out` was generated using OpenJDK 8.
 ```sh
 make test
 ```
+
+### See also
+
+- [`splittable-random`](https://github.com/janestreet/splittable_random)
+- [`pringo`](https://github.com/xavierleroy/pringo)
