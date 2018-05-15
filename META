@@ -1,0 +1,4 @@
+description = "Splittable PRNG"
+version = "0.1"
+archive(byte)    = "pureSplitMix.cma"
+archive(native)  = "pureSplitMix.cmxa"
