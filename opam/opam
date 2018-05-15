@@ -3,10 +3,12 @@ name: "pure-splitmix"
 version: "0.1"
 maintainer: "Li-yao Xia <lysxia@gmail.com>"
 authors: "Li-yao Xia"
-license: "MIT"
 homepage: "https://github.com/Lysxia/pure-splitmix"
-build: [ make "build" ]
-build-test: [ make "test" ]
+dev-repo: "https://github.com/Lysxia/pure-splitmix.git"
+bug-reports: "https://github.com/Lysxia/pure-splitmix/issues"
+license: "MIT"
+build: [make "build"]
+build-test: [make "test"]
 depends: [
   "ocamlbuild" {build & >= "0.9.0"}
 ]
