@@ -81,6 +81,7 @@ let of_string s =
   of_seed (loop 8 0L)
 
 let auto_seed () =
+  Random.self_init ();
   let open Bits in
   let half = 0x100000000L in
   let s = ((Random.int64 half <<< 32) |. Random.int64 half) + golden_gamma in
