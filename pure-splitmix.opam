@@ -7,4 +7,6 @@ license: "MIT"
 homepage: "https://github.com/Lysxia/pure-splitmix"
 build: [ make "build" ]
 build-test: [ make "test" ]
-depends: []
+depends: [
+  "ocamlbuild" {build & >= "0.9.0"}
+]
