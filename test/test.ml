@@ -32,4 +32,10 @@ let _ =
   print (next_long g2);
   print (next_long g3);
   print (next_long g3);
-  print (next_long g3)
+  print (next_long g3);
+  (* Run mix_gamma many times to trigger the gamma-fixing branch. *)
+  let g3' = ref g3 in
+  for i = 0 to 299 do
+    g3' := split !g3'
+  done;
+  print (next_long !g3')

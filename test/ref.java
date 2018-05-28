@@ -15,5 +15,9 @@ class Main {
     System.out.println(g3.nextLong());
     System.out.println(g3.nextLong());
     System.out.println(g3.nextLong());
+    for (int i = 0; i < 300; i++) {
+      g3 = g3.split();
+    }
+    System.out.println(g3.nextLong());
   }
 }
