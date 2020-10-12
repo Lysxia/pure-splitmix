@@ -1,5 +1,6 @@
 opam-version: "1.2"
 name: "pure-splitmix"
+synopsis: "SplitMix PRNG with a pure interface"
 version: "0.2"
 maintainer: "Li-yao Xia <lysxia@gmail.com>"
 authors: "Li-yao Xia"
