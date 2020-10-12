@@ -32,3 +32,7 @@ val int : t -> int -> int
 
 (** Generate a [bool]. *)
 val bool : t -> bool
+
+val mix64 : int64 -> int64
+val mix64variant13 : int64 -> int64
+val mix_gamma : int64 -> int64
