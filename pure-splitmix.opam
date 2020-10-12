@@ -7,8 +7,7 @@ homepage: "https://github.com/Lysxia/pure-splitmix"
 dev-repo: "https://github.com/Lysxia/pure-splitmix.git"
 bug-reports: "https://github.com/Lysxia/pure-splitmix/issues"
 license: "MIT"
-build: [make "build"]
-build-test: [make "test"]
+build: [ "dune" "build" "-p" name "-j" jobs ]
 depends: [
-  "ocamlbuild" {build & >= "0.9.0"}
+  "dune" {build}
 ]

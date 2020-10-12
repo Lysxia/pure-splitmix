@@ -1,0 +1,6 @@
+(library
+ (name pure_splitmix)
+ (public_name pure-splitmix)
+ (wrapped false)
+ (modules PureSplitMix)
+)
