@@ -29,6 +29,8 @@ type t = {
 
 let golden_gamma = 0x9e3779b97f4a7c15L
 
+module Internal = struct
+
 (* MurmurHash3 finalization mix.
    https://github.com/aappleby/smhasher/blob/master/src/MurmurHash3.cpp#L81-L90
 *)
@@ -41,7 +43,7 @@ let mix64 z =
 (* Stafford's variant 13 of mix64.
    https://zimbry.blogspot.fi/2011/09/better-bit-mixing-improving-on.html
 *)
-let mix64variant13 z =
+let mix64_variant13 z =
   let open Bits in
   let z = (z ^ (z >>> 30)) * 0xbf58476d1ce4e5b9L in
   let z = (z ^ (z >>> 27)) * 0x94d049bb133111ebL in
@@ -68,6 +70,10 @@ let mix_gamma z =
   else
     z
 
+end
+
+open Internal
+
 let of_seed s = { seed = s; gamma = golden_gamma }
 
 let of_string s =
@@ -85,10 +91,10 @@ let auto_seed () =
   let open Bits in
   let half = 0x100000000L in
   let s = ((Random.int64 half <<< 32) |. Random.int64 half) + golden_gamma in
-  { seed = mix64variant13 s; gamma = mix_gamma (s + golden_gamma) }
+  { seed = mix64_variant13 s; gamma = mix_gamma (s + golden_gamma) }
 
 let mk_split seed1 seed2 = {
-  seed = mix64variant13 seed1;
+  seed = mix64_variant13 seed1;
   gamma = mix_gamma seed2;
 }
 
@@ -111,7 +117,7 @@ let vary n { seed = seed0; gamma } =
 
 let next_int64 { seed; gamma } =
   let seed' = Bits.(seed + gamma) in
-  (mix64variant13 seed', { seed = seed'; gamma })
+  (mix64_variant13 seed', { seed = seed'; gamma })
 
 let to_int64 rng = fst (next_int64 rng)
 

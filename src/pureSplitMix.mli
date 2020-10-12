@@ -33,6 +33,12 @@ val int : t -> int -> int
 (** Generate a [bool]. *)
 val bool : t -> bool
 
-val mix64 : int64 -> int64
-val mix64variant13 : int64 -> int64
-val mix_gamma : int64 -> int64
+(** {3 Internal functions *)
+
+(** Exported for testing. *)
+module Internal : sig
+  val popcount : int64 -> int
+  val mix64 : int64 -> int64
+  val mix64_variant13 : int64 -> int64
+  val mix_gamma : int64 -> int64
+end
