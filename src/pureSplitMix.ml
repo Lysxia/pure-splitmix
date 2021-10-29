@@ -119,7 +119,13 @@ let next_int64 { seed; gamma } =
   let seed' = Bits.(seed + gamma) in
   (mix64_variant13 seed', { seed = seed'; gamma })
 
-let to_int64 rng = fst (next_int64 rng)
+let int64 { seed; gamma } =
+  let seed' = Bits.(seed + gamma) in
+  mix64_variant13 seed'
+
+let int_signed rng = Int64.to_int (int64 rng)
+
+let int_nonneg rng = Int64.to_int (int64 rng) land max_int
 
 (* bound must be positive. *)
 let rec int64' rng bound =
@@ -138,4 +144,4 @@ let int rng bound =
     Int64.to_int (int64' rng (Int64.of_int bound))
 
 (* Test sign bit. *)
-let bool rng = to_int64 rng < 0L
+let bool rng = int64 rng < 0L

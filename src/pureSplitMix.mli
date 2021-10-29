@@ -27,7 +27,16 @@ val vary : int -> t -> t
 (** Generate 64 random bits, and return a new state. *)
 val next_int64 : t -> int64 * t
 
-(** Generate an [int] uniformly in a range [\[0, max)]. *)
+(** Generate 64 random bits. *)
+val int64 : t -> int64
+
+(** Generate an [int] uniformly in the range [\[min_int, max_int\]] *)
+val int_signed : t -> int
+
+(** Generate an [int] uniformly in the range [\[0, max_int\]] *)
+val int_nonneg : t -> int
+
+(** Generate an [int] uniformly in a range [\[0, bound)]. *)
 val int : t -> int -> int
 
 (** Generate a [bool]. *)
