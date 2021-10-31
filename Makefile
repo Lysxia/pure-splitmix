@@ -22,7 +22,7 @@ $(TEST_EXE): $(ML_SRC) $(TEST_SRC)
 	ocamlbuild -I src test/$(TEST_EXE)
 
 ref.out: $(REF_EXE)
-	java -classpath test Main > ref.out
+	java -classpath test Main > test/ref.out
 
 $(REF_EXE): $(REF_SRC)
 	javac $(REF_SRC)
