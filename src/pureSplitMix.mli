@@ -42,7 +42,7 @@ val int : t -> int -> int
 (** Generate a [bool]. *)
 val bool : t -> bool
 
-(** {3 Internal functions *)
+(** {3 Internal functions} *)
 
 (** Exported for testing. *)
 module Internal : sig
