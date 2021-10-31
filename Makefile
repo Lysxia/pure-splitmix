@@ -11,18 +11,21 @@ REF_EXE=test/Main.class
 
 .PHONY: build test
 
-build: $(ML_SRC)
-	ocamlbuild -I src/ $(ML_OUT)
+build:
+	dune build
 
 test: $(TEST_EXE)
-	./$(TEST_EXE) > test.out
-	diff test.out ref.out
+	./$(TEST_EXE) > test/test.out
+	diff test/test.out test/ref.out
 
-$(TEST_EXE): $(ML_SRC) $(TEST_SRC)
-	ocamlbuild -I src test/$(TEST_EXE)
+$(TEST_EXE): build $(TEST_SRC)
+	ocamlbuild -package pure-splitmix test/$(TEST_EXE)
 
 ref.out: $(REF_EXE)
 	java -classpath test Main > test/ref.out
 
 $(REF_EXE): $(REF_SRC)
 	javac $(REF_SRC)
+
+clean:
+	$(RM) -r _build test/*.o test/*.cmi test/*.cmx
