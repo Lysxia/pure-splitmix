@@ -4,7 +4,7 @@ Pure SplitMix
 Purely functional splittable PRNG.
 
 - 100% OCaml.
-- Light dependencies.
+- No dependencies.
 
 ### Install with `opam`
 
