@@ -11,4 +11,5 @@ license: "MIT"
 build: [ "dune" "build" "-p" name "-j" jobs ]
 depends: [
   "dune" {build}
+  "ocaml"
 ]
